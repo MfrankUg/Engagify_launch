@@ -49,7 +49,15 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold mb-4 text-white">Connect</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors">Twitter</a></li>
+              <li>
+                <a 
+                  href="mailto:engagify227@gmail.com" 
+                  className="text-gray-400 hover:text-neon-cyan transition-colors"
+                >
+                  engagify227@gmail.com
+                </a>
+              </li>
+              <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors">X</a></li>
               <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors">Discord</a></li>
               <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors">Instagram</a></li>
             </ul>

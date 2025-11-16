@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import Header from './components/Header'
+import ImageSlider from './components/ImageSlider'
 import Hero from './components/Hero'
 import Features from './components/Features'
 import CTA from './components/CTA'
 import Countdown from './components/Countdown'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -40,12 +42,14 @@ function App() {
 
       <div className="relative z-10">
         <Header />
+        <ImageSlider />
         <Countdown />
         <Hero />
         <Features />
         <CTA />
         <Footer />
       </div>
+      <ScrollToTop />
     </div>
   )
 }

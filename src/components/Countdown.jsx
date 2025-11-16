@@ -76,7 +76,7 @@ const Countdown = () => {
   }, [])
 
   return (
-    <section id="countdown" className="py-12 md:py-16 px-4 relative mt-20">
+    <section id="countdown" className="pt-4 md:pt-6 pb-12 md:pb-16 px-4 relative">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-8 md:mb-12"
@@ -87,17 +87,23 @@ const Countdown = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-3 md:mb-4">
             <span className="text-gradient neon-text">Launching in:</span>
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mt-2 md:mt-4">
-            Are you ready to level up?
-          </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 mb-8 md:mb-12">
           <TimeUnit value={timeLeft.days} label="Days" />
           <TimeUnit value={timeLeft.hours} label="Hours" />
           <TimeUnit value={timeLeft.minutes} label="Minutes" />
           <TimeUnit value={timeLeft.seconds} label="Seconds" isBlinking={true} />
         </div>
+
+        <motion.p
+          className="text-lg md:text-xl lg:text-2xl text-gray-300 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Are you ready to level up?
+        </motion.p>
       </div>
     </section>
   )
