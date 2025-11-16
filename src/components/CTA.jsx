@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const CTA = () => {
+const CTA = ({ onOpenRegistration }) => {
   return (
     <section id="cta" className="py-20 md:py-32 px-4 relative overflow-hidden">
       {/* Animated gradient background */}
@@ -34,13 +34,11 @@ const CTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <motion.a
-              href="https://engagify.site"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={onOpenRegistration}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-purple rounded-full font-bold text-xl text-white shadow-2xl neon-border relative overflow-hidden group inline-block"
+              className="px-10 py-5 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-purple rounded-full font-bold text-xl text-white shadow-2xl neon-border relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Get Early Access
@@ -57,15 +55,18 @@ const CTA = () => {
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.a>
+            </motion.button>
 
-            <motion.button
+            <motion.a
+              href="https://engagify.site"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 glass-blur rounded-full font-bold text-xl text-white border-2 border-neon-cyan hover:border-neon-blue transition-all duration-300"
+              className="px-10 py-5 glass-blur rounded-full font-bold text-xl text-white border-2 border-neon-cyan hover:border-neon-blue transition-all duration-300 inline-block"
             >
               Join the Launch Crew
-            </motion.button>
+            </motion.a>
           </div>
 
           <motion.p

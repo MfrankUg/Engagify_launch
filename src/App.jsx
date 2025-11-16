@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
 import ImageSlider from './components/ImageSlider'
@@ -7,8 +8,19 @@ import CTA from './components/CTA'
 import Countdown from './components/Countdown'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import RegistrationForm from './components/RegistrationForm'
 
 function App() {
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
+
+  const openRegistration = () => {
+    setIsRegistrationOpen(true)
+  }
+
+  const closeRegistration = () => {
+    setIsRegistrationOpen(false)
+  }
+
   return (
     <div className="gradient-bg min-h-screen relative">
       {/* Animated background particles */}
@@ -41,15 +53,16 @@ function App() {
       </div>
 
       <div className="relative z-10">
-        <Header />
+        <Header onOpenRegistration={openRegistration} />
         <ImageSlider />
         <Countdown />
-        <Hero />
+        <Hero onOpenRegistration={openRegistration} />
         <Features />
-        <CTA />
+        <CTA onOpenRegistration={openRegistration} />
         <Footer />
       </div>
       <ScrollToTop />
+      <RegistrationForm isOpen={isRegistrationOpen} onClose={closeRegistration} />
     </div>
   )
 }

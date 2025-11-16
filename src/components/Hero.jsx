@@ -28,7 +28,7 @@ const FloatingShape = ({ delay, position, size, color }) => {
   )
 }
 
-const Hero = () => {
+const Hero = ({ onOpenRegistration }) => {
   const containerRef = useRef(null)
 
   return (
@@ -106,13 +106,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <motion.a
-              href="https://engagify.site"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={onOpenRegistration}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-purple rounded-full font-bold text-lg text-white shadow-lg neon-border relative overflow-hidden group inline-block"
+              className="px-8 py-4 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-purple rounded-full font-bold text-lg text-white shadow-lg neon-border relative overflow-hidden group"
             >
               <span className="relative z-10">Get Early Access</span>
               <motion.div
@@ -121,15 +119,18 @@ const Hero = () => {
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.a>
+            </motion.button>
 
-            <motion.button
+            <motion.a
+              href="https://engagify.site"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 glass-blur rounded-full font-bold text-lg text-white border-2 border-neon-cyan hover:border-neon-blue transition-all duration-300"
+              className="px-8 py-4 glass-blur rounded-full font-bold text-lg text-white border-2 border-neon-cyan hover:border-neon-blue transition-all duration-300 inline-block"
             >
               Join the Launch Crew
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
