@@ -103,10 +103,38 @@ const Header = ({ onOpenRegistration }) => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] glass-blur border-l border-gray-800/50 z-[70] md:hidden overflow-y-auto"
+              className="fixed top-0 right-0 h-screen min-h-screen w-full sm:w-[85vw] sm:max-w-sm bg-black/95 backdrop-blur-2xl border-l-2 border-neon-cyan/50 z-[70] md:hidden overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
+              style={{ 
+                boxShadow: '-10px 0 30px rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'rgba(0, 0, 0, 0.92)'
+              }}
             >
-              <div className="p-6 pt-20">
+              {/* Close Button */}
+              <div className="sticky top-0 bg-black/95 backdrop-blur-2xl border-b border-neon-cyan/20 px-6 py-5 flex justify-end z-10">
+                <button
+                  onClick={closeMenu}
+                  className="w-12 h-12 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <svg
+                    className="w-7 h-7 text-neon-cyan"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Menu Items */}
+              <div className="px-6 py-10 min-h-[calc(100vh-80px)] flex flex-col justify-center">
                 <nav className="flex flex-col gap-6">
                   <motion.a
                     href="#features"
@@ -117,8 +145,9 @@ const Header = ({ onOpenRegistration }) => {
                         document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' })
                       }, 100)
                     }}
-                    className="text-xl font-semibold text-gray-300 hover:text-neon-cyan transition-colors py-2 cursor-pointer"
-                    whileHover={{ x: 5 }}
+                    className="text-2xl font-bold text-white hover:text-neon-cyan transition-colors py-6 px-6 rounded-xl hover:bg-white/10 active:bg-white/15 cursor-pointer border border-transparent hover:border-neon-cyan/30 min-h-[64px] flex items-center"
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Features
                   </motion.a>
@@ -131,8 +160,9 @@ const Header = ({ onOpenRegistration }) => {
                         document.querySelector('#countdown')?.scrollIntoView({ behavior: 'smooth' })
                       }, 100)
                     }}
-                    className="text-xl font-semibold text-gray-300 hover:text-neon-cyan transition-colors py-2 cursor-pointer"
-                    whileHover={{ x: 5 }}
+                    className="text-2xl font-bold text-white hover:text-neon-cyan transition-colors py-6 px-6 rounded-xl hover:bg-white/10 active:bg-white/15 cursor-pointer border border-transparent hover:border-neon-cyan/30 min-h-[64px] flex items-center"
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Launch Countdown
                   </motion.a>
@@ -143,8 +173,9 @@ const Header = ({ onOpenRegistration }) => {
                         onOpenRegistration()
                       }, 100)
                     }}
-                    className="text-left text-xl font-semibold text-gray-300 hover:text-neon-cyan transition-colors py-2 cursor-pointer"
-                    whileHover={{ x: 5 }}
+                    className="text-left text-2xl font-bold text-white hover:text-neon-cyan transition-colors py-6 px-6 rounded-xl hover:bg-white/10 active:bg-white/15 cursor-pointer border border-transparent hover:border-neon-cyan/30 min-h-[64px] flex items-center"
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Get Early Access
                   </motion.button>
@@ -153,8 +184,9 @@ const Header = ({ onOpenRegistration }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={closeMenu}
-                    className="text-xl font-semibold text-gray-300 hover:text-neon-cyan transition-colors py-2 cursor-pointer"
-                    whileHover={{ x: 5 }}
+                    className="text-2xl font-bold text-white hover:text-neon-cyan transition-colors py-6 px-6 rounded-xl hover:bg-white/10 active:bg-white/15 cursor-pointer border border-transparent hover:border-neon-cyan/30 min-h-[64px] flex items-center"
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Join Launch Crew
                   </motion.a>
@@ -167,8 +199,9 @@ const Header = ({ onOpenRegistration }) => {
                         document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' })
                       }, 100)
                     }}
-                    className="text-xl font-semibold text-gray-300 hover:text-neon-cyan transition-colors py-2 cursor-pointer"
-                    whileHover={{ x: 5 }}
+                    className="text-2xl font-bold text-white hover:text-neon-cyan transition-colors py-6 px-6 rounded-xl hover:bg-white/10 active:bg-white/15 cursor-pointer border border-transparent hover:border-neon-cyan/30 min-h-[64px] flex items-center"
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Learn More
                   </motion.a>
