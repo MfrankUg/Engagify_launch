@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import logo from '../assets/engagify _logo.png'
+import logo from '../assets/Engagify_logo.png'
 
 const Header = () => {
   return (
