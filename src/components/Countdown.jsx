@@ -17,7 +17,7 @@ const TimeUnit = memo(({ value, label, isBlinking = false }) => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient neon-text mb-2"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient countdown-text mb-2"
           >
             {displayValue}
           </motion.div>
@@ -32,7 +32,7 @@ const TimeUnit = memo(({ value, label, isBlinking = false }) => {
       <div
         className="glass-blur rounded-2xl p-4 md:p-6 lg:p-8 text-center min-w-[80px] md:min-w-[100px] lg:min-w-[120px] transition-transform hover:scale-105 hover:-translate-y-1"
       >
-        <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient neon-text mb-2">
+        <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient countdown-text mb-2">
           {displayValue}
         </div>
         <div className="text-xs md:text-sm lg:text-base text-gray-400 uppercase tracking-wider font-semibold">
