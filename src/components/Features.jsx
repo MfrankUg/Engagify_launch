@@ -28,7 +28,7 @@ const Features = () => {
     {
       iconName: 'rocket',
       title: 'No-Code XR Platform',
-      description: "Build interactive 3D lessons, VR games, or 360° experiences - from your phone or laptop, no crazy tech skills needed. Super smooth platform inspired by industry leaders.",
+      description: "Create interactive 3D lessons, VR games, or 360° experiences - from your phone or laptop, no crazy tech skills needed. Super smooth platform inspired by industry leaders.",
       gradient: 'text-neon-blue',
     },
     {
@@ -58,7 +58,7 @@ const Features = () => {
     {
       iconName: 'sparkles',
       title: 'Anytime, Anywhere',
-      description: 'Access your experiences from any device. Share with your community, collaborate with creators, and build the future of immersive education together.',
+      description: 'Access your experiences from any device. Share with your community, collaborate with creators, and shape the future of immersive education together.',
       gradient: 'text-neon-blue',
     },
   ]
@@ -77,7 +77,7 @@ const Features = () => {
             <span className="text-gradient neon-text">The Future is Here</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Imagine building interactive 3D lessons, VR games, or 360° experiences - all from your phone or laptop, no crazy tech skills needed.
+            Imagine creating interactive 3D lessons, VR games, or 360° experiences - all from your phone or laptop, no crazy tech skills needed.
           </p>
         </motion.div>
 

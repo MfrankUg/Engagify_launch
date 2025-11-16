@@ -38,5 +38,30 @@ npm run build
 
 ## Launch Date
 
-**December 2nd, 2025** - The future starts here! 
+**December 2nd, 2025** - The future starts here!
+
+## Deployment
+
+This site is configured for deployment on GitHub Pages.
+
+### GitHub Pages Deployment
+
+The site is automatically deployed using GitHub Actions when you push to the `main` branch.
+
+1. Make sure your GitHub repository is set up at: `https://github.com/MfrankUg/Engagify_launch.git`
+2. Enable GitHub Pages in your repository settings:
+   - Go to Settings → Pages
+   - Source: GitHub Actions
+3. Push your code to the `main` branch
+4. The GitHub Action will automatically build and deploy your site
+
+### Manual Build
+
+To build the site locally:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory. 
 

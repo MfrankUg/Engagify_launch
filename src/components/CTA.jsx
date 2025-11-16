@@ -26,11 +26,11 @@ const CTA = () => {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
             <span className="text-gradient neon-text block mb-4">
-              Ready to Build the Future?
+              Ready for the Future?
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            Be the first to build and explore immersive experiences that will change how we learn, create, and connect.
+            Be the first to create and explore immersive experiences that will change how we learn, create, and connect.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
