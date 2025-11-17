@@ -8,23 +8,49 @@ const RegistrationForm = ({ isOpen, onClose }) => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after showing success message
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '' })
-      onClose()
-    }, 2000)
+    try {
+      // Send data to Google Apps Script
+      const formDataToSend = new FormData()
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+
+      const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL
+      
+      if (!scriptUrl) {
+        throw new Error('Google Script URL is not configured')
+      }
+
+      const response = await fetch(
+        scriptUrl,
+        {
+          method: 'POST',
+          mode: 'no-cors', // Google Apps Script requires no-cors for web apps
+          body: formDataToSend,
+        }
+      )
+
+      // With no-cors mode, we can't read the response, so we assume success
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      
+      // Reset form after showing success message
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: '', email: '' })
+        onClose()
+      }, 2000)
+    } catch (err) {
+      console.error('Error submitting form:', err)
+      setIsSubmitting(false)
+      setError('Failed to submit. Please try again.')
+    }
   }
 
   const handleChange = (e) => {
@@ -127,6 +153,16 @@ const RegistrationForm = ({ isOpen, onClose }) => {
                           placeholder="Enter your email"
                         />
                       </div>
+
+                      {error && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="p-3 rounded-lg bg-red-500/20 border border-red-500/50 text-red-400 text-sm"
+                        >
+                          {error}
+                        </motion.div>
+                      )}
 
                       <motion.button
                         type="submit"
