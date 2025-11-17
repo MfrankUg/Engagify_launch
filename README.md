@@ -49,11 +49,19 @@ This site is configured for deployment on GitHub Pages.
 The site is automatically deployed using GitHub Actions when you push to the `main` branch.
 
 1. Make sure your GitHub repository is set up at: `https://github.com/MfrankUg/Engagify_launch.git`
-2. Enable GitHub Pages in your repository settings:
+2. **Set up GitHub Secret for Google Apps Script URL:**
+   - Go to your repository → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `VITE_GOOGLE_SCRIPT_URL`
+   - Value: Your Google Apps Script URL (from `.env` file)
+   - Click "Add secret"
+3. Enable GitHub Pages in your repository settings:
    - Go to Settings → Pages
    - Source: GitHub Actions
-3. Push your code to the `main` branch
-4. The GitHub Action will automatically build and deploy your site
+4. Push your code to the `main` branch
+5. The GitHub Action will automatically build and deploy your site
+
+**Important:** The `.env` file is not committed to Git for security. Make sure to add the `VITE_GOOGLE_SCRIPT_URL` as a GitHub Secret for the deployment to work correctly.
 
 ### Manual Build
 

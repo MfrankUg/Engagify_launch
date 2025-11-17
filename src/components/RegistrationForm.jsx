@@ -23,22 +23,32 @@ const RegistrationForm = ({ isOpen, onClose }) => {
 
       const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL
       
-      if (!scriptUrl) {
-        throw new Error('Google Script URL is not configured')
+      if (!scriptUrl || scriptUrl === 'undefined') {
+        console.error('Google Script URL is not configured. Environment variable:', import.meta.env.VITE_GOOGLE_SCRIPT_URL)
+        setError('Form submission is not configured. Please contact support.')
+        setIsSubmitting(false)
+        return
       }
 
-      const response = await fetch(
-        scriptUrl,
-        {
-          method: 'POST',
-          mode: 'no-cors', // Google Apps Script requires no-cors for web apps
-          body: formDataToSend,
-        }
-      )
-
-      // With no-cors mode, we can't read the response, so we assume success
-      setIsSubmitting(false)
-      setIsSubmitted(true)
+      // Use fetch with error handling for no-cors requests
+      try {
+        await fetch(
+          scriptUrl,
+          {
+            method: 'POST',
+            mode: 'no-cors', // Google Apps Script requires no-cors for web apps
+            body: formDataToSend,
+          }
+        )
+        
+        // With no-cors mode, we can't read the response, so we assume success
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+      } catch (fetchError) {
+        // Even with no-cors, network errors can occur
+        console.error('Fetch error:', fetchError)
+        throw fetchError
+      }
       
       // Reset form after showing success message
       setTimeout(() => {
